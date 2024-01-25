@@ -1,64 +1,80 @@
-# LISTS, TUPLES, SETS
+# LIST METHODS
 
 
-# LISTS
-
-cars = [["Citroen","C3",2012],["Alfa Romeo","156",2008],["Mazda","323",1996]]
-print(cars[0][2]) # 2012
-
-# append()
-cars.append(["Fiat","Marea",2005])
-print(cars[len(cars)-1][0]) # Fiat
-
-#remove()
-cars.remove(cars[0])
-print(cars) # [['Alfa Romeo', '156', 2008], ['Mazda', '323', 1996], ['Fiat', 'Marea', 2005]]
+# list.append(x)
+cars = ["Citroen","Alfa Romeo"]
+cars.append("Mazda")
+print(cars) # ['Citroen', 'Alfa Romeo', 'Mazda']
+cars[len(cars):] = ["Fiat"]
+print(cars) # ['Citroen', 'Alfa Romeo', 'Mazda', 'Fiat']
 
 
-# TUPLES
-
-not_a_tuple = "Citroen"
-a_turple = "Citroen",
-print(type(a_turple)) # <class 'tuple'>
-a_not_prefered_tuple_expression = "Citroen","Alfa Romeo"
-print(type(a_not_prefered_tuple_expression)) # <class 'tuple'>
-a_clear_tuple = ("Mazda","Fiat")
-print(type(a_clear_tuple)) # <class 'tuple'>
-
-# append() cannot be used with tuple, instead
-joined_tuple = ("Citroen",) + ("Alfa Romeo",) + a_clear_tuple +("MG",) 
-print(joined_tuple) # ('Citroen', 'Alfa Romeo', 'Mazda', 'Fiat', 'MG')
+# list.extend(x), extend the list with an iterable
+cars.extend(["Honda","Peugeot"])
+print(cars)
+# ['Citroen', 'Alfa Romeo', 'Mazda', 'Fiat', 'Honda', 'Peugeot']
+cars.extend("BMW")
+print(cars) 
+# ['Citroen', 'Alfa Romeo', 'Mazda', 'Fiat', 'Honda', 'Peugeot', 'B', 'M', 'W']
+cars[len(cars):] = "Audi"
+print(cars)
+# ['Citroen', 'Alfa Romeo', 'Mazda', 'Fiat', 'Honda', 'Peugeot', 'B', 'M', 'W', 'A', 'u', 'd', 'i']
 
 
-# SETS
-# sets are unordered and contains only unique values
+# list.insert(i,x)
+# insert the item x at the index i
+letters = ["a","b","d","e","f"]
+letters.insert(2,"c")
+print(letters) # ['a', 'b', 'c', 'd', 'e', 'f']
+letters.insert(len(letters),"g")
+print(letters) # ['a', 'b', 'c', 'd', 'e', 'f', 'g'] --- similar to append
 
-cars = {"Citroen","Alfa Romeo","Mazda","Fiat"}
-print(cars) # {'Fiat', 'Citroen', 'Mazda', 'Alfa Romeo'}
 
-# add to a set
-cars.add("MG")
-print(cars) # {'Citroen', 'MG', 'Mazda', 'Alfa Romeo', 'Fiat'}
+# list.remove(x) --- remove the first found x
+# if not found raises ValueError
+cars.remove("Fiat")
+print(cars)
+# ['Citroen', 'Alfa Romeo', 'Mazda', 'Honda', 'Peugeot', 'B', 'M', 'W', 'A', 'u', 'd', 'i']
 
-# remove from a set
-cars.remove("MG")
-print(cars) # {'Citroen', 'Fiat', 'Mazda', 'Alfa Romeo'}
 
-science_friends = {"Jane","Bob","Rob"}
-art_friends = {"Tina","Jane"}
+# list.pop([i]) --- i is optional
+# remove the element at the index i (and return it)
+# if i not given remove and return the last element
+saved_before_pop = letters.pop()
+print(saved_before_pop) # g
+print(letters) # ['a', 'b', 'c', 'd', 'e', 'f']
 
-# difference of sets
-science_but_not_art = science_friends.difference(art_friends)
-print(science_but_not_art) # {'Bob', 'Rob'}
 
-# symmetric difference (not included in both at the same time)
-not_in_both = science_friends.symmetric_difference(art_friends)
-print(not_in_both) # {'Bob', 'Rob', 'Tina'}
+# list.clear() --- remove all elements
+cars.clear()
+print(cars) #[]
 
-# intersection (present in both)
-present_in_both = science_friends.intersection(art_friends)
-print(present_in_both) # {'Jane'}
 
-# union (present in both but without duplication)
-union = science_friends.union(art_friends)
-print(union) # {'Rob', 'Tina', 'Jane', 'Bob'}
+# list.index(x[, start[, end]])
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'c','h', 'i', 'j', 'k', 'c', 'd', 'e', 'l', 'm']
+print(letters.index("c")) # 2
+print(letters.index("c",5)) # 7 ---> search for the argument beginning at index 5
+print(letters.index("c",5,11)) # 7 ---> search for the argument beginning at index 5 and ending at index 11 
+
+
+# list.count(x) 
+print(letters.count("c")) # 3
+
+
+# list.sort() --- sorts in place
+letters.sort()
+print(letters)
+# ['a', 'b', 'c', 'c', 'c', 'd', 'd', 'e', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
+
+
+# list.reverse() --- reverses in place
+letters.reverse()
+print(letters) 
+# ['m', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'e', 'd', 'd', 'c', 'c', 'c', 'b', 'a']
+
+
+# list.copy() --- return a shallow copy ---> equivalent to [:]
+cars = ["Mazda","Fiat"]
+cars_copy= cars.copy()
+print(cars) # ['Mazda', 'Fiat']
+print(cars_copy) # ['Mazda', 'Fiat']
