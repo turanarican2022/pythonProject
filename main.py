@@ -2,6 +2,7 @@
 
 tuple = 1,2,3,4
 print(tuple) # (1, 2, 3, 4)
+print(tuple[2])
 
 tuple_2 = tuple, 5,6,7
 print(tuple_2) # ((1, 2, 3, 4), 5, 6, 7)
