@@ -48,17 +48,25 @@ science_friends = {"Jane","Bob","Rob"}
 art_friends = {"Tina","Jane"}
 
 # difference of sets
+# in a but not in b
 science_but_not_art = science_friends.difference(art_friends)
 print(science_but_not_art) # {'Bob', 'Rob'}
+print(science_friends-art_friends) # {'Bob', 'Rob'}
 
 # symmetric difference (not included in both at the same time)
+# in a or b but not both
 not_in_both = science_friends.symmetric_difference(art_friends)
 print(not_in_both) # {'Bob', 'Rob', 'Tina'}
+print(science_friends^art_friends) # {'Bob', 'Rob', 'Tina'}
 
 # intersection (present in both)
+# in both a and b
 present_in_both = science_friends.intersection(art_friends)
 print(present_in_both) # {'Jane'}
+print(science_friends&art_friends) # {'Jane'}
 
-# union (present in both but without duplication)
+# union (all in both but without duplication)
+# in a or b or both
 union = science_friends.union(art_friends)
 print(union) # {'Rob', 'Tina', 'Jane', 'Bob'}
+print(science_friends|art_friends) # {'Rob', 'Tina', 'Jane', 'Bob'}
