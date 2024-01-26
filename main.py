@@ -78,3 +78,6 @@ cars = ["Mazda","Fiat"]
 cars_copy= cars.copy()
 print(cars) # ['Mazda', 'Fiat']
 print(cars_copy) # ['Mazda', 'Fiat']
+
+# join()
+print(f"I once had {', '.join(cars)}") # I once had Mazda, Fiat
