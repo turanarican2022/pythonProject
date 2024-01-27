@@ -1,4 +1,7 @@
 # ELSE KEYWORD WITH LOOPS
+# In a for loop, the else clause is executed after the loop reaches its final iteration.
+# In a while loop, it’s executed after the loop’s condition becomes false.
+# In either kind of loop, the else clause is not executed if the loop was terminated by a break.
 
 car_production = ["ok","ok","ok","faulty","ok"]
 
