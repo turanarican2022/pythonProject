@@ -1,18 +1,38 @@
-cars = {"Citroen":(2012,"sold"),"Alfa Romeo":(2008,"wrecked")}
+# ELSE KEYWORD WITH LOOPS
 
-for car in cars: # to iterate over keys
-    print(car)
-    # Citroen
-    # Alfa Romeo
+car_production = ["ok","ok","ok","faulty","ok"]
 
-for (year,end) in cars.values(): # to iterate over values
-    print(f"built in {year} and later {end}")
-    # built in 2012 and later sold
-    # built in 2008 and later wrecked
+for control_check in car_production:
+    if control_check != "ok":
+        print("faulty encountered...! Skipping")
+        break
+    print("car was built, shipping it")
+else:
+    print("all production was successful") # never runs
+# 
+# car was built, shipping it
+# car was built, shipping it
+# car was built, shipping it
+# faulty encountered...! Skipping
+# car was built, shipping it
+#
 
-for car,(year,end) in cars.items(): # to iterate over items
-    print(f"{car} was made in the year {year} and in the end it is {end}")
-    #
-    # Citroen was made in the year 2012 and in the end it is sold
-    # Alfa Romeo was made in the year 2008 and in the end it is wrecked
-    #
+# the else keywords runs only if the whole loop ran without break or error 
+# during iterations
+
+car_production = ["ok","ok","ok","ok","ok"]
+for control_check in car_production:
+    if control_check != "ok":
+        print("faulty encountered...! Skipping")
+        continue
+    print("car was built, shipping it")
+else:
+    print("all production was successful")
+#
+# car was built, shipping it
+# car was built, shipping it
+# car was built, shipping it
+# car was built, shipping it
+# car was built, shipping it
+# all production was successful
+#
