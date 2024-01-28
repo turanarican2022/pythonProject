@@ -1,41 +1,17 @@
-# ELSE KEYWORD WITH LOOPS
-# In a for loop, the else clause is executed after the loop reaches its final iteration.
-# In a while loop, it’s executed after the loop’s condition becomes false.
-# In either kind of loop, the else clause is not executed if the loop was terminated by a break.
+#####################################
+# SET AND DICTIONARY COMPREHENSIONS #
+#####################################
 
-car_production = ["ok","ok","ok","faulty","ok"]
+# set comprehensions
 
-for control_check in car_production:
-    if control_check != "ok":
-        print("faulty encountered...! Skipping")
-        break
-    print("car was built, shipping it")
-else:
-    print("all production was successful") # never runs
-# 
-# car was built, shipping it
-# car was built, shipping it
-# car was built, shipping it
-# faulty encountered...! Skipping
-# car was built, shipping it
-#
+all_cars = ["Citroen","Alfa Romeo","Mazda","Fiat","Citroen"]
+only_cars = {car for car in all_cars}
+print(only_cars) #{'Fiat', 'Mazda', 'Citroen', 'Alfa Romeo'}
 
-# the else keywords runs only if the whole loop ran without break or error 
-# during iterations
+# dictionary comprehensions
 
-car_production = ["ok","ok","ok","ok","ok"]
-for control_check in car_production:
-    if control_check != "ok":
-        print("faulty encountered...! Skipping")
-        continue
-    print("car was built, shipping it")
-else:
-    print("all production was successful")
-#
-# car was built, shipping it
-# car was built, shipping it
-# car was built, shipping it
-# car was built, shipping it
-# car was built, shipping it
-# all production was successful
-#
+cars = ["Citroen","Alfa Romeo","Mazda","Fiat","AMI"]
+status = ["sold","wrecked","sold","sold","yet to be bought"]
+cars_status = {cars[i]:status[i] for i in range(len(cars))}
+print(cars_status)
+# {'Citroen': 'sold', 'Alfa Romeo': 'wrecked', 'Mazda': 'sold', 'Fiat': 'sold', 'AMI': 'yet to be bought'}
