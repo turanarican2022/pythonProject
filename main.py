@@ -1,32 +1,26 @@
 #####################################
-# THE zip() FUCNTION #
+# THE enumerate() FUNCTION #
 #####################################
 
-# the zip() function
+# enumerate(iterable, start=0)
+# iterable must be a sequence, an iterator, or some other object which supports iteration.
+# join a number with each element of the iterable
 
-all_cars = ["Citroen","Alfa Romeo","Mazda","Fiat","AMI"]
-year = [2012,2008,1996,2005,2024]
-status = ("sold","wrecked","sold","sold","will be bought")
+cars = ["Citroen","Alfa Romeo","Mazda","Fiat"]
+enumerated = enumerate(cars)
+print(enumerated) # <enumerate object at 0x7f65c414f580>
 
-zipped = zip(all_cars,year,status)
-print(zipped) # <zip object at 0x7f5c2986b6c0>
+enumerated = list(enumerated)
+print(enumerated) # [(0, 'Citroen'), (1, 'Alfa Romeo'), (2, 'Mazda'), (3, 'Fiat')]
 
-zipped = tuple(zipped) # zip creates a tuple
-print(zipped)
-# (
-# ('Citroen', 2012, 'sold'), ('Alfa Romeo', 2008, 'wrecked'), 
-# ('Mazda', 1996, 'sold'), ('Fiat', 2005, 'sold'), 
-# ('AMI', 2024, 'will be bought')
-# )
+enumerated = dict(enumerate(cars,start=2012))
+print(enumerated) # {2012: 'Citroen', 2013: 'Alfa Romeo', 2014: 'Mazda', 2015: 'Fiat'}
 
-zipped = list(zipped)
-print(zipped)
-# [
-# ('Citroen', 2012, 'sold'), ('Alfa Romeo', 2008, 'wrecked'), 
-# ('Mazda', 1996, 'sold'), ('Fiat', 2005, 'sold'), 
-# ('AMI', 2024, 'will be bought')
-# ]
-
-zipped = zip(all_cars,year)
-zipped = dict(zipped)
-print(zipped) # {'Citroen': 2012, 'Alfa Romeo': 2008, 'Mazda': 1996, 'Fiat': 2005, 'AMI': 2024}
+for year, car in enumerated.items():
+    print(f"I used a {car} in year {year}")
+#
+# I used a Citroen in year 2012
+# I used a Alfa Romeo in year 2013
+# I used a Mazda in year 2014
+# I used a Fiat in year 2015
+#
