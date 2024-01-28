@@ -1,17 +1,32 @@
 #####################################
-# SET AND DICTIONARY COMPREHENSIONS #
+# THE zip() FUCNTION #
 #####################################
 
-# set comprehensions
+# the zip() function
 
-all_cars = ["Citroen","Alfa Romeo","Mazda","Fiat","Citroen"]
-only_cars = {car for car in all_cars}
-print(only_cars) #{'Fiat', 'Mazda', 'Citroen', 'Alfa Romeo'}
+all_cars = ["Citroen","Alfa Romeo","Mazda","Fiat","AMI"]
+year = [2012,2008,1996,2005,2024]
+status = ("sold","wrecked","sold","sold","will be bought")
 
-# dictionary comprehensions
+zipped = zip(all_cars,year,status)
+print(zipped) # <zip object at 0x7f5c2986b6c0>
 
-cars = ["Citroen","Alfa Romeo","Mazda","Fiat","AMI"]
-status = ["sold","wrecked","sold","sold","yet to be bought"]
-cars_status = {cars[i]:status[i] for i in range(len(cars))}
-print(cars_status)
-# {'Citroen': 'sold', 'Alfa Romeo': 'wrecked', 'Mazda': 'sold', 'Fiat': 'sold', 'AMI': 'yet to be bought'}
+zipped = tuple(zipped) # zip creates a tuple
+print(zipped)
+# (
+# ('Citroen', 2012, 'sold'), ('Alfa Romeo', 2008, 'wrecked'), 
+# ('Mazda', 1996, 'sold'), ('Fiat', 2005, 'sold'), 
+# ('AMI', 2024, 'will be bought')
+# )
+
+zipped = list(zipped)
+print(zipped)
+# [
+# ('Citroen', 2012, 'sold'), ('Alfa Romeo', 2008, 'wrecked'), 
+# ('Mazda', 1996, 'sold'), ('Fiat', 2005, 'sold'), 
+# ('AMI', 2024, 'will be bought')
+# ]
+
+zipped = zip(all_cars,year)
+zipped = dict(zipped)
+print(zipped) # {'Citroen': 2012, 'Alfa Romeo': 2008, 'Mazda': 1996, 'Fiat': 2005, 'AMI': 2024}
