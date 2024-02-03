@@ -1,14 +1,39 @@
-divide = lambda x,y:x//y
-print(divide(15,3)) # 5
+#####################################
+# FIRST CLASS FUNCTIONS             #
+#####################################
 
-write = lambda car,year: print(f"{car} was made in {year}")
-write("Citroen",2012) # Citroen was made in 2012
+# functions can be assigned to variables
 
-write = lambda name="Halit Turan",surname="ARICAN": f"my name is {name} {surname}"
-print(write()) # my name is Halit Turan ARICAN
-print(write(name="Halide",surname="Tuğba")) # my name is Halide Tuğba
+def greet(name):
+    print(f"hello {name}")
 
-def op(num_1,num_2,operand):
-    print(operand(num_1,num_2))
+hello = greet
+hello("Tuğba") # hello Tuğba
+
+# mapping functions to variables with dictionaries
+
+functions = {
+    "write_name" : lambda person: f'{person["name"]} is {person["age"]} years old',
+    "write_car": lambda car,car_year: f"Her car is a {car} of {car_year} model year"
+}
+
+person = {
+    "name":"Halide",
+    "age":38,
+
+}
+
+car = {
+    "car":"BMW",
+    "car_year":2024,
+}
+
+def write_info():
+    write_name_here = functions["write_name"]
+    print(write_name_here(person))
+    # Halide is 38 years old
+    write_car_here = functions["write_car"]
+    print(write_car_here(**car))
+    # Her car is a BMW of 2024 model year
     
-op(20,2,lambda x,y:x//y) # 10
+write_info()
