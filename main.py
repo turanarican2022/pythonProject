@@ -32,8 +32,7 @@ def write_info():
     write_name_here = functions["write_name"]
     print(write_name_here(person))
     # Halide is 38 years old
-    write_car_here = functions["write_car"]
-    print(write_car_here(**car))
+    print(functions["write_car"](**car))
     # Her car is a BMW of 2024 model year
     
 write_info()
