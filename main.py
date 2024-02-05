@@ -1,31 +1,29 @@
 #############################
-# MAGIC __magic__() METHODS #
+# INHERITANCE               #
 #############################
 
-class Garage:
-    def __init__(self):
-        self.cars = []
-        
-    def __len__(self):
-        return len(self.cars)
+class Electronics:
+    def __init__(self, type, make, model):
+        self.type = type
+        self.make = make
+        self.model = model
     
-    def __getitem__(self,i):
-        return self.cars[i]
+    def made_in(self,country):
+        return f"made in {country}"
     
-    def __repr__(self):
-        return f"<class Garage {self.cars}>"
+class Phone(Electronics):
+    def __init__(self, type, make, model, sub_model, year, price):
+        super().__init__(type, make, model)
+        self.sub_model=sub_model
+        self.year=year
+        self.price=price
     
-    def __str__(self):
-        return f"A garage with {len(self.cars)} cars"
+    def built_in(self):
+        return f"built in {self.year}"
+    
+huawei_laptop = Electronics("laptop","huawei","d15")
+print(huawei_laptop.made_in("china")) # made in china
 
-garage = Garage()
-garage.cars.append("Citroen")
-garage.cars.append("Mazda")
-
-print(garage.cars)
-
-print(len(garage)) # 2
-
-print(garage[0]) # Citroen
-
-print(garage) # A garage with 2 cars
+huawei_phone = Phone("phone","huawei","nova9","se",2022,8000)
+print(huawei_phone.made_in("china")) # made in china
+print(huawei_phone.built_in()) # built in 2022
