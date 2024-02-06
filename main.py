@@ -1,5 +1,5 @@
 #############################
-# @ PROPERTY DECORATOR      #
+# @classmethod      #
 #############################
 
 # if a method's (function inside a class) sole job is
