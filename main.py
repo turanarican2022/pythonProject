@@ -1,13 +1,26 @@
 #######################################
-# filter() and map() with lambda      #
+# modules                             #
 #######################################
 
-cars = [{"Citroen":"sold"},{"Alfa Romeo":"wrecked"},{"Mazda":"sold"},{"Fiat":"wrecked and sold"}]
-    
-sold_cars = list(filter(lambda car : "sold" in car.values() ,cars))
+import name_module
+from car_module import return_car as rc
 
-print(sold_cars)
+print(name_module.return_full_name("Halide","Tuğba"))
+# Halide Tuğba
 
-cars_end = list(map(lambda car: f"{list(car.keys())[0]} is {list(car.values())[0]}" ,cars))
+print(rc())
+# once I had an Alfa Romeo
 
-print(cars_end)
+print(dir(name_module))
+# ['__builtins__', '__cached__', '__doc__', '__file__', 
+# '__loader__', '__name__', '__package__', '__spec__', 
+# 'return_full_name']
+
+print(name_module.return_full_name)
+# <function return_full_name at 0x7fc290866170>
+
+print(name_module.__name__)
+# name_module
+
+print(name_module.__file__)
+# /home/dajjal/Desktop/pythonProject/name_module.py
