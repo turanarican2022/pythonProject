@@ -1,2 +1,4 @@
-def return_full_name(f_name,l_name):
-    return f"{f_name} {l_name}"
+print(__name__)
+
+# when the name_module is imported in another file
+# i.e. main.py, this code runs automatically
