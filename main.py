@@ -1,17 +1,13 @@
-#############################
-# @classmethod      #
-#############################
+#######################################
+# filter() and map() with lambda      #
+#######################################
 
-class Person:
+cars = [{"Citroen":"sold"},{"Alfa Romeo":"wrecked"},{"Mazda":"sold"},{"Fiat":"wrecked and sold"}]
     
-    def __init__(self,name,age):
-        self.name = name
-        self.age = age
-        
-    @property
-    def give_info(self): # here no argument can be given other than self
-        return f"{self.name} is {self.age} years old"
-    
-    def return_info(self):
-        return f"{self.name} is {self.age} years old"
-        
+sold_cars = list(filter(lambda car : "sold" in car.values() ,cars))
+
+print(sold_cars)
+
+cars_end = list(map(lambda car: f"{list(car.keys())[0]} is {list(car.values())[0]}" ,cars))
+
+print(cars_end)
