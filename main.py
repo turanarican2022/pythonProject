@@ -1,20 +1,26 @@
 #######################################
-# dictionary comprehension            #
+# set methods                         #
 #######################################
 
-cars = {"Citroen":34000,"Alfa Romeo":28000,"Mazda":6000,"Fiat":18000}
+set_1 = {"Nitissa","Aisis","Adissas","Nita","Arin"}
+set_2 = {"Nitissa","Nita","Tamara","Jacob"}
 
-cars_in_eu = {car:price/2 for (car,price) in cars.items()}
+# union:
+print(set_1 | set_2)
+print(set_1.union(set_2))
+# {'Tamara', 'Nita', 'Nitissa', 'Arin', 'Aisis', 'Adissas', 'Jacob'}
 
-print(cars_in_eu)
-# {'Citroen': 17000.0, 'Alfa Romeo': 14000.0, 'Mazda': 3000.0, 'Fiat': 9000.0}
+# intersection
+print(set_1&set_2)
+print(set_1.intersection(set_2))
+# {'Nitissa', 'Nita'}
 
-cheap_cars = {car:price for (car,price) in cars.items() if price<20000}
+# difference
+print(set_1-set_2)
+print(set_1.difference(set_2))
+# {'Arin', 'Aisis', 'Adissas'}
 
-print(cheap_cars)
-# {'Mazda': 6000, 'Fiat': 18000}
-
-cars = {car:("cheap" if price <20000 else "expensive") for (car,price) in cars.items()}
-
-print(cars)
-# {'Citroen': 'expensive', 'Alfa Romeo': 'expensive', 'Mazda': 'cheap', 'Fiat': 'cheap'}
+# symmetric difference - elements that do not belong to the both sets at the same time
+print(set_1^set_2)
+print(set_1.symmetric_difference(set_2))
+# {'Arin', 'Aisis', 'Jacob', 'Tamara', 'Adissas'}
