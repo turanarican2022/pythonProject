@@ -7,4 +7,4 @@ import car_module as c_mod
 
 print(__name__) # __main__
 
-print(c_mod.return_car()) # car_module
+print(c_mod.return_car()) # return_car() function called
