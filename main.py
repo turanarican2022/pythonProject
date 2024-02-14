@@ -14,14 +14,21 @@ class Person:
         self.age = age
         
     @property
-    def give_info(self): # here no argument can be given other than self
+    def info(self): # here no argument can be given other than self
         return f"{self.name} is {self.age} years old"
+    
+    @info.setter
+    def info(self,name):
+        self.name = name
+        
     
     def return_info(self):
         return f"{self.name} is {self.age} years old"
         
 
 person=Person("Nitissa",42)
-print(person.give_info) # Nitissa is 42 years old
+print(person.info) # Nitissa is 42 years old
+person.info = "Halit"
+print(person.info) # Halit is 42 years old
 print(person.return_info)
 # <bound method Person.return_info of <__main__.Person object at 0x7f247d617d00>>
