@@ -1,5 +1,5 @@
 #######################################
-# using @classmethod as a constructor #
+# @staticmethod                       #
 ########################### to Ethan...
 
 class Student:
