@@ -14,7 +14,7 @@ class CarFactory:
     
     def __init__(self, brand, model, year):
         if brand not in CarFactory._manufacturers:
-            raise Exception(f"{brand} has no permission to manufacture in this car factory")
+            raise ValueError(f"{brand} has no permission to manufacture in this car factory")
         self.brand = brand
         self.model = model
         self.year = year
@@ -59,7 +59,7 @@ print(CarFactory._cars_produced)
 def produce_car(brand,model,year):
     try:
         return CarFactory(brand,model,year)
-    except Exception as e:
+    except ValueError as e:
         return e
 
 print(produce_car("BMW","M4",2024)) # BMW has no permission to manufacture in this car factory
