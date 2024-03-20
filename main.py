@@ -1,14 +1,31 @@
 ####################################################
-# safely accessing dictionary elements with .get() #
-######################################## to Ethan...
+# reading from and writing to files                #
+####################################### to Joshua...
 
-a_dict = {"key1":"value1", "key3":"value3"}
+# write to a file: (the second "w" parameter should be used)
+with open("file.md", "w") as file:
+    file.write("This line is written by Python script")
 
-# print(a_dict["key2"]) # KeyError: 'key2'
+# read from a file: (the second argument is by default "r", it can be omitted)
+with open("file.md") as file:
+    print(file.read())
+    # This line is written by Python script
+    
+# read from a multiline file:
 
-print(a_dict.get("key1")) # value1
-print(a_dict.get("key2")) # None
+with open("multiline_file.md") as multiline_file:
+    for line in multiline_file:
+        print(line)
 
+# title
+
+
+
+# this is a multiline .md file
+
+
+
+# what else?
 
 
 
